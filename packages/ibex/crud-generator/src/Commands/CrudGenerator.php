@@ -91,8 +91,6 @@ class CrudGenerator extends GeneratorCommand
     {
         $modelPath = $this->_getModelPath($this->name);
 
-        @unlink($modelPath);
-
         if ($this->files->exists($modelPath) && $this->ask('Already exist Model. Do you want overwrite (y/n)?', 'y') == 'n') {
             return $this;
         }

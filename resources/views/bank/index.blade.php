@@ -36,6 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>User Id</th>
 										<th>Name</th>
 										<th>Address</th>
 										<th>Account No</th>
@@ -51,6 +52,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $bank->user_id }}</td>
 											<td>{{ $bank->name }}</td>
 											<td>{{ $bank->address }}</td>
 											<td>{{ $bank->account_no }}</td>

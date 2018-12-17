@@ -1,6 +1,11 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
+        <div class="form-group  {{ $errors->has('user_id') ? "has-error" : ""}}">
+            {{ Form::label('user_id') }}
+            {{ Form::text('user_id', $bank->user_id, ['class' => 'form-control', 'placeholder' => 'User Id']) }}
+            {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
+        </div>
         <div class="form-group  {{ $errors->has('name') ? "has-error" : ""}}">
             {{ Form::label('name') }}
             {{ Form::text('name', $bank->name, ['class' => 'form-control', 'placeholder' => 'Name']) }}

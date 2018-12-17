@@ -18,6 +18,10 @@
         <div class="card-body">
             
             <div class="form-group">
+                <strong>User Id:</strong>
+                {{ $bank->user_id }}
+            </div>
+            <div class="form-group">
                 <strong>Name:</strong>
                 {{ $bank->name }}
             </div>
