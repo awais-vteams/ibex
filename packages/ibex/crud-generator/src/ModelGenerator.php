@@ -108,23 +108,23 @@ class ModelGenerator
     }
 
     /**
+     * Get the name relation and model
+     *
      * @param $name
      * @param $relation
      * @return array
      */
     private function _getModelName($name, $relation)
     {
-        $class = '';
+        $class = ucfirst(camel_case(str_singular($name)));
         $relationName = '';
 
         switch ($relation) {
             case 'hasOne':
                 $relationName = camel_case(str_singular($name));
-                $class = ucfirst($relationName);
                 break;
             case 'hasMany':
                 $relationName = camel_case(str_plural($name));
-                $class = ucfirst(camel_case(str_singular($name)));
                 break;
         }
 
