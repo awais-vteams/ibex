@@ -2,6 +2,7 @@
 
 namespace Ibex\CrudGenerator\Commands;
 
+use Ibex\CrudGenerator\ModelGenerator;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
@@ -315,15 +316,15 @@ abstract class GeneratorCommand extends Command
             return implode(',', $filterColumns);
         };
 
-        $relations = function () {
+        $properties .= "\n *";
 
-        };
+        list($relations, $properties) = (new ModelGenerator($this->table, $properties))->getEloquentRelations();
 
         return [
             '{{modelName}}' => $this->name,
             '{{fillable}}' => $fillable(),
             '{{rules}}' => $rules(),
-            '{{relations}}' => $relations(),
+            '{{relations}}' => $relations,
             '{{properties}}' => $properties,
         ];
     }

@@ -20,4 +20,7 @@ class {{modelName}} extends Model
      * @var array
      */
     protected $fillable = [{{fillable}}];
+
+{{relations}}
+
 }

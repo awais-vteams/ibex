@@ -47,9 +47,10 @@ class CrudGenerator extends GeneratorCommand
         $this->name = $this->_buildClassName();
 
         // Generate the crud
-        $this->buildController()
+        $this->buildModel();
+        /*$this->buildController()
             ->buildModel()
-            ->buildViews();
+            ->buildViews();*/
 
         $this->info('Created Successfully.');
 
@@ -90,6 +91,8 @@ class CrudGenerator extends GeneratorCommand
     protected function buildModel()
     {
         $modelPath = $this->_getModelPath($this->name);
+
+        @unlink($modelPath);
 
         if ($this->files->exists($modelPath) && $this->ask('Already exist Model. Do you want overwrite (y/n)?', 'y') == 'n') {
             return $this;
