@@ -47,10 +47,9 @@ class CrudGenerator extends GeneratorCommand
         $this->name = $this->_buildClassName();
 
         // Generate the crud
-        $this->buildModel();
-        /*$this->buildController()
+        $this->buildController()
             ->buildModel()
-            ->buildViews();*/
+            ->buildViews();
 
         $this->info('Created Successfully.');
 
